@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/SelfIntroduce/static/js/main.a590f99c.js",
+    "static/js/453.160e7679.chunk.js": "/SelfIntroduce/static/js/453.160e7679.chunk.js",
+    "index.html": "/SelfIntroduce/index.html",
+    "main.a590f99c.js.map": "/SelfIntroduce/static/js/main.a590f99c.js.map",
+    "453.160e7679.chunk.js.map": "/SelfIntroduce/static/js/453.160e7679.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a590f99c.js"
+  ]
+}

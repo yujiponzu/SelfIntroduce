@@ -2,6 +2,7 @@
   "name": "my_reseach_page",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yujiponzu.github.io/SelfIntroduce/",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
@@ -21,7 +22,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "rm": "powershell.exe if (Test-Path docs) { Remove-Item -Recurse -Force docs }",
+    "mv": "powershell.exe Move-Item -Path build -Destination docs",
+    "git": "git add . && git commit -m \"deploy\" && git push origin master",
+    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
   "eslintConfig": {
     "extends": [
