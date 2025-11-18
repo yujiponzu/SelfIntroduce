@@ -28,4 +28,3 @@ export const App: React.FC = () => {
         </>
     )
 }
-// test
