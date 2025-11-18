@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { SNSList } from './ForList';
 import { SNSs } from '../WorksAndEducations';
 
-export const Introduction = () => {
+export const Introduction: React.FC = () => {
     return (
         <>
             <Sul>
@@ -10,7 +10,7 @@ export const Introduction = () => {
                     <SName>植田 雄士</SName>
                 </Sli>
                 <Sli>
-                    <SNSList sns={SNSs}/>
+                    <SNSList sns={SNSs} />
                 </Sli>
             </Sul>
             <IntroSentence />
@@ -18,11 +18,10 @@ export const Introduction = () => {
     )
 }
 
-
 const SName = styled.div`
     font-size: 30px;
     font-weight: bold;
-    color: #000000; 
+    color: #000000;
 `
 
 const Sli = styled.li`
@@ -35,7 +34,7 @@ const Sul = styled.ul`
     display: flex;
 `
 
-const IntroSentence = () => {
+const IntroSentence: React.FC = () => {
     return (
         <p>{text}</p>
     )

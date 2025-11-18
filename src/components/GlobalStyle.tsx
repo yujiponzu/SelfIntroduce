@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   ul, ol {
     list-style: none;
   }
-  
+
   /* --- Global Design --- */
   body {
     font-family: 'Noto Sans JP', sans-serif;

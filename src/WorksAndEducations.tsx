@@ -1,4 +1,32 @@
-export const works = [
+export interface Work {
+    title: string;
+    description: string;
+    peerReview: boolean;
+    url?: string;
+    book?: string;
+}
+
+export interface Education {
+    school: string;
+    status: string;
+    time: string;
+}
+
+export interface Interview {
+    title: string;
+    time: string;
+    description: string;
+    url: string;
+    specifiedId: string;
+}
+
+export interface SNS {
+    address: string;
+    name: string;
+    url: string;
+}
+
+export const works: Work[] = [
     {
         title: '「エコーチェンバー」の定義の曖昧性について—引用関係のエコロジー的分析を基に—',
         description: '2024年度大阪大学文学部卒業論文．エコーチェンバーという概念の定義の曖昧性について人文科学や社会科学などの文献を横断的に比較し分析した．',
@@ -12,7 +40,7 @@ export const works = [
     }
 ];
 
-export const educations = [
+export const educations: Education[] = [
     {
         school: "大阪府立天王寺高等学校文理学科",
         status: "入学",
@@ -40,7 +68,7 @@ export const educations = [
     },
 ]
 
-export const interviews = [
+export const interviews: Interview[] = [
     {
         title: "すべての阪大生が開く「学問への扉」",
         time: "2021年9月",
@@ -50,7 +78,7 @@ export const interviews = [
     }
 ]
 
-export const SNSs = [
+export const SNSs: SNS[] = [
     {
         address: "/images/x_logo.svg",
         name: "X",

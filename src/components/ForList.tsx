@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { Work, Education, Interview, SNS } from "../WorksAndEducations";
 
-export const WorksList = ({ works }) => {
+interface WorksListProps {
+    works: Work[];
+}
+
+export const WorksList: React.FC<WorksListProps> = ({ works }) => {
     return (
         <dl id="works-list">
             {
@@ -59,8 +64,11 @@ const SDt = styled.dt`
     margin-top: 1rem;
 `
 
+interface EducationsListProps {
+    educations: Education[];
+}
 
-export const EducationsList = ({ educations }) => {
+export const EducationsList: React.FC<EducationsListProps> = ({ educations }) => {
     return (
         <dl id="educations-list">
             {
@@ -81,7 +89,7 @@ export const EducationsList = ({ educations }) => {
 
 const SCareerDTitile = styled.dt`
     font-size: 18px;
-    color: #000000; 
+    color: #000000;
 `
 
 const SCareerDdescription = styled.dd`
@@ -89,7 +97,11 @@ const SCareerDdescription = styled.dd`
     font-size: 16px;
 `
 
-export const InterviewList = ({ interviews }) => {
+interface InterviewListProps {
+    interviews: Interview[];
+}
+
+export const InterviewList: React.FC<InterviewListProps> = ({ interviews }) => {
     return (
         <dl id="interviews-list">
             {
@@ -111,7 +123,7 @@ export const InterviewList = ({ interviews }) => {
 
 const SInterviewTitle = styled.dt`
     font-size: 18px;
-    color: #000000; 
+    color: #000000;
 `
 
 const SInterviewDate = styled.dd`
@@ -124,16 +136,20 @@ const SInterviewDescription = styled.dd`
     font-size: 16px;
 `
 
-export const SNSList = ({ sns }) => {
+interface SNSListProps {
+    sns: SNS[];
+}
+
+export const SNSList: React.FC<SNSListProps> = ({ sns }) => {
     return (
         <ul>
             {
                 sns.map((elem) => (
-                    <React.Fragment key={elem.title}>
+                    <React.Fragment key={elem.name}>
                         <SSNSList>
                             <a href={elem.url} target="_blank" rel="noopener noreferrer">
-                                <img 
-                                    src={elem.address} 
+                                <img
+                                    src={elem.address}
                                     alt={elem.name}
                                     style={{ width: "50px", height: "50px", marginRight: "10px" }}
                                 />
@@ -150,4 +166,4 @@ const SSNSList = styled.li`
     list-style-type: none;
     display: inline-flex;
     align-items: center;
-    `
+`

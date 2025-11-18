@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const TitleComponents = (props) => {
+interface TitleComponentsProps {
+    title: string;
+}
+
+export const TitleComponents: React.FC<TitleComponentsProps> = (props) => {
     const { title } = props;
     return (
         <SContainer>
@@ -22,10 +26,14 @@ const SContainer = styled.div`
 const STitle = styled.h1`
     margin: 0;
     font-size: 24px;
-    color: #000000; 
+    color: #000000;
 `;
 
-export const Heading = (props) => {
+interface HeadingProps {
+    heading: string;
+}
+
+export const Heading: React.FC<HeadingProps> = (props) => {
     const { heading } = props;
     return (
         <SHeading>{heading}</SHeading>
@@ -35,7 +43,7 @@ export const Heading = (props) => {
 const SHeading = styled.h2`
     font-size: 30px;
     color:rgb(100, 100, 100);
-    border-bottom: double 3px #666;  
+    border-bottom: double 3px #666;
     line-height: 1;
     margin-bottom: 15px;
     margin-top: 30px;
