@@ -1,41 +1,21 @@
-import styled from "styled-components";
+import { FC } from "react";
 import { SNSList } from "./ForList";
 import { SNSs } from "../WorksAndEducations";
 
-export const Introduction: React.FC = () => {
+export const Introduction: FC = () => {
   return (
-    <>
-      <Sul>
-        <Sli>
-          <SName>植田 雄士</SName>
-        </Sli>
-        <Sli>
-          <SNSList sns={SNSs} />
-        </Sli>
-      </Sul>
+    <section id="introduction" className="space-y-4">
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="text-3xl font-bold text-gray-900">植田 雄士</div>
+        <SNSList sns={SNSs} />
+      </div>
       <IntroSentence />
-    </>
+    </section>
   );
 };
 
-const SName = styled.div`
-  font-size: 30px;
-  font-weight: bold;
-  color: #000000;
-`;
-
-const Sli = styled.li`
-  list-style-type: none;
-  display: inline-flex;
-  margin: 0 5px;
-`;
-
-const Sul = styled.ul`
-  display: flex;
-`;
-
-const IntroSentence: React.FC = () => {
-  return <p>{text}</p>;
+const IntroSentence: FC = () => {
+  return <p className="whitespace-pre-line leading-relaxed text-gray-700">{text}</p>;
 };
 
 const text = `

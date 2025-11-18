@@ -1,48 +1,25 @@
-import styled from "styled-components";
+import { FC } from "react";
 
 interface TitleComponentsProps {
   title: string;
 }
 
-export const TitleComponents: React.FC<TitleComponentsProps> = (props) => {
-  const { title } = props;
+export const TitleComponents: FC<TitleComponentsProps> = ({ title }) => {
   return (
-    <SContainer>
-      <STitle>{title}</STitle>
-    </SContainer>
+    <div className="mx-2 my-4 flex items-center justify-center rounded-xl border border-gray-700 bg-white px-4 py-3 shadow-sm">
+      <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
+    </div>
   );
 };
-
-const SContainer = styled.div`
-  border: solid 1px #000000;
-  border-radius: 10px;
-  padding: 8px;
-  margin: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const STitle = styled.h1`
-  margin: 0;
-  font-size: 24px;
-  color: #000000;
-`;
 
 interface HeadingProps {
   heading: string;
 }
 
-export const Heading: React.FC<HeadingProps> = (props) => {
-  const { heading } = props;
-  return <SHeading>{heading}</SHeading>;
+export const Heading: FC<HeadingProps> = ({ heading }) => {
+  return (
+    <h2 className="mt-10 mb-4 border-b-2 border-gray-300 pb-2 text-2xl font-semibold text-gray-700">
+      {heading}
+    </h2>
+  );
 };
-
-const SHeading = styled.h2`
-  font-size: 30px;
-  color: rgb(100, 100, 100);
-  border-bottom: double 3px #666;
-  line-height: 1;
-  margin-bottom: 15px;
-  margin-top: 30px;
-`;

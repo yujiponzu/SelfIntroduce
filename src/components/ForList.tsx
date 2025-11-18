@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { Work, Education, Interview, SNS } from "../WorksAndEducations";
 
 interface WorksListProps {
@@ -8,59 +7,40 @@ interface WorksListProps {
 
 export const WorksList: React.FC<WorksListProps> = ({ works }) => {
   return (
-    <dl id="works-list">
+    <dl id="works-list" className="space-y-3">
       {works.map((elem) => (
-        <React.Fragment key={elem.title}>
-          <SDt>
+        <div
+          key={elem.title}
+          className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-gray-200"
+        >
+          <dt className="flex flex-wrap items-center gap-2 text-lg font-semibold text-gray-900">
             {elem.url ? (
-              <>
-                <a href={elem.url} target="_blank" rel="noopener noreferrer">
-                  <SPaperTitle>{elem.title}</SPaperTitle>
-                </a>
-                {elem.peerReview && <SPeerReviewBadge>査読有</SPeerReviewBadge>}
-              </>
+              <a
+                href={elem.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-blue-700"
+              >
+                {elem.title}
+              </a>
             ) : (
-              <>
-                <SPaperTitle>{elem.title}</SPaperTitle>
-                {elem.peerReview && <SPeerReviewBadge>査読有</SPeerReviewBadge>}
-              </>
+              <span>{elem.title}</span>
             )}
-          </SDt>
-          <SPaperDescription>{elem.description}</SPaperDescription>
-          <SBook>{elem.book}</SBook>
-        </React.Fragment>
+            {elem.peerReview && (
+              <span className="rounded-full bg-blue-600 px-2 py-0.5 text-xs font-semibold text-white">
+                査読有
+              </span>
+            )}
+          </dt>
+          <dd className="mt-1 text-gray-700">{elem.description}</dd>
+          {elem.book && (
+            <dd className="mt-1 text-sm italic text-gray-500">{elem.book}</dd>
+          )}
+        </div>
       ))}
     </dl>
   );
 };
-
-const SPeerReviewBadge = styled.span`
-  margin-left: 0.5rem;
-  padding: 1px 3px;
-  fontsize: 0.75rem;
-  color: white;
-  background-color: blue;
-  border-radius: 8px;
-`;
-
-const SPaperTitle = styled.span`
-  font-style: bold;
-  font-size: 18px;
-  display: inline;
-`;
-
-const SPaperDescription = styled.dd`
-  margin-left: 2rem;
-`;
-
-const SBook = styled.dd`
-  margin-left: 2rem;
-  font-style: italic;
-  font-size: 0.8rem;
-`;
-const SDt = styled.dt`
-  margin-top: 1rem;
-`;
 
 interface EducationsListProps {
   educations: Education[];
@@ -70,29 +50,22 @@ export const EducationsList: React.FC<EducationsListProps> = ({
   educations,
 }) => {
   return (
-    <dl id="educations-list">
+    <dl id="educations-list" className="space-y-2">
       {educations.map((elem) => (
-        <React.Fragment key={elem.time}>
-          <SCareerDTitile>{elem.time}</SCareerDTitile>
-          <SCareerDdescription>
+        <div
+          key={elem.time}
+          className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-gray-200"
+        >
+          <dt className="text-lg font-semibold text-gray-900">{elem.time}</dt>
+          <dd className="mt-1 text-base text-gray-700">
             {elem.school}
             {elem.status !== null && ` ${elem.status}`}
-          </SCareerDdescription>
-        </React.Fragment>
+          </dd>
+        </div>
       ))}
     </dl>
   );
 };
-
-const SCareerDTitile = styled.dt`
-  font-size: 18px;
-  color: #000000;
-`;
-
-const SCareerDdescription = styled.dd`
-  margin-left: 2rem;
-  font-size: 16px;
-`;
 
 interface InterviewListProps {
   interviews: Interview[];
@@ -100,40 +73,29 @@ interface InterviewListProps {
 
 export const InterviewList: React.FC<InterviewListProps> = ({ interviews }) => {
   return (
-    <dl id="interviews-list">
+    <dl id="interviews-list" className="space-y-2">
       {interviews.map((elem) => (
-        <React.Fragment key={elem.title}>
-          <SInterviewTitle>
+        <div
+          key={elem.title}
+          className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-gray-200"
+        >
+          <dt className="text-lg font-semibold text-gray-900">
             <a
               href={`${elem.url}#${elem.specifiedId}`}
               target="_blank"
               rel="noopener noreferrer"
+              className="transition hover:text-blue-700"
             >
               {elem.title}
             </a>
-          </SInterviewTitle>
-          <SInterviewDate>{elem.time}</SInterviewDate>
-          <SInterviewDescription>{elem.description}</SInterviewDescription>
-        </React.Fragment>
+          </dt>
+          <dd className="mt-1 text-sm text-gray-500">{elem.time}</dd>
+          <dd className="mt-1 text-base text-gray-700">{elem.description}</dd>
+        </div>
       ))}
     </dl>
   );
 };
-
-const SInterviewTitle = styled.dt`
-  font-size: 18px;
-  color: #000000;
-`;
-
-const SInterviewDate = styled.dd`
-  margin-left: 2rem;
-  font-size: 14px;
-`;
-
-const SInterviewDescription = styled.dd`
-  margin-left: 2rem;
-  font-size: 16px;
-`;
 
 interface SNSListProps {
   sns: SNS[];
@@ -141,26 +103,23 @@ interface SNSListProps {
 
 export const SNSList: React.FC<SNSListProps> = ({ sns }) => {
   return (
-    <ul>
+    <ul className="flex items-center gap-3">
       {sns.map((elem) => (
-        <React.Fragment key={elem.name}>
-          <SSNSList>
-            <a href={elem.url} target="_blank" rel="noopener noreferrer">
-              <img
-                src={elem.address}
-                alt={elem.name}
-                style={{ width: "50px", height: "50px", marginRight: "10px" }}
-              />
-            </a>
-          </SSNSList>
-        </React.Fragment>
+        <li key={elem.name} className="list-none">
+          <a
+            href={elem.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-full bg-white p-2 ring-1 ring-gray-300 transition hover:shadow-sm"
+          >
+            <img
+              src={elem.address}
+              alt={elem.name}
+              className="h-10 w-10"
+            />
+          </a>
+        </li>
       ))}
     </ul>
   );
 };
-
-const SSNSList = styled.li`
-  list-style-type: none;
-  display: inline-flex;
-  align-items: center;
-`;
