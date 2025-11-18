@@ -1,0 +1,10 @@
+# Build outputs
+build/
+docs/
+
+# Dependencies
+node_modules/
+
+# Generated files
+coverage/
+*.log
