@@ -7,24 +7,24 @@ import { TopMenu, menus } from "./components/TopMenu";
 import { Introduction } from "./components/Introduction";
 
 export const App: React.FC = () => {
-    return (
-        <>
-            <MaterialDrawer />
-            <GlobalStyle />
-            <TitleComponents title="植田雄士のホームページ" />
-            <TopMenu menus={menus} />
+  return (
+    <>
+      <MaterialDrawer />
+      <GlobalStyle />
+      <TitleComponents title="植田雄士のホームページ" />
+      <TopMenu menus={menus} />
 
-            <Heading heading="自己紹介" />
-            <Introduction />
+      <Heading heading="自己紹介" />
+      <Introduction />
 
-            <Heading heading="研究業績" />
-            <WorksList works={works} />
+      <Heading heading="研究業績" />
+      <WorksList works={works} />
 
-            <Heading heading="学歴" />
-            <EducationsList educations={educations} />
+      <Heading heading="学歴" />
+      <EducationsList educations={educations} />
 
-            <Heading heading="インタビュー" />
-            <InterviewList interviews={interviews} />
-        </>
-    )
-}
+      <Heading heading="インタビュー" />
+      <InterviewList interviews={interviews} />
+    </>
+  );
+};
