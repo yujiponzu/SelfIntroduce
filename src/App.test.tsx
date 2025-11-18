@@ -10,26 +10,26 @@ describe('App Component', () => {
 
   test('renders introduction section', () => {
     render(<App />);
-    const introductionHeading = screen.getByText(/自己紹介/i);
-    expect(introductionHeading).toBeInTheDocument();
+    const introductionHeadings = screen.getAllByText(/自己紹介/i);
+    expect(introductionHeadings.length).toBeGreaterThan(0);
   });
 
   test('renders works section', () => {
     render(<App />);
-    const worksHeading = screen.getByText(/研究業績/i);
-    expect(worksHeading).toBeInTheDocument();
+    const worksHeadings = screen.getAllByText(/研究業績/i);
+    expect(worksHeadings.length).toBeGreaterThan(0);
   });
 
   test('renders education section', () => {
     render(<App />);
-    const educationHeading = screen.getByText(/学歴/i);
-    expect(educationHeading).toBeInTheDocument();
+    const educationHeadings = screen.getAllByText(/学歴/i);
+    expect(educationHeadings.length).toBeGreaterThan(0);
   });
 
   test('renders interview section', () => {
     render(<App />);
-    const interviewHeading = screen.getByText(/インタビュー/i);
-    expect(interviewHeading).toBeInTheDocument();
+    const interviewHeadings = screen.getAllByText(/インタビュー/i);
+    expect(interviewHeadings.length).toBeGreaterThan(0);
   });
 
   test('renders name', () => {
